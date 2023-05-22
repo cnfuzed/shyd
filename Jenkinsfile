@@ -11,7 +11,7 @@ pipeline {
 
     stage('Ansible Provisioning') {
       steps {
-        sh 'ansible-playbook -i ansible/inventory.ini ansible/playbook.yml'
+        sh 'ansible-playbook -i shyd/inventory.ini ansible/playbook.yml'
       }
     }
   }
