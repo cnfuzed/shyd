@@ -11,9 +11,18 @@ pipeline {
 
     stage('Ansible Provisioning') {
       steps {
+	dir('/var/lib/jenkins/workspace/shyd/'){
+	ansiblePlaybook(
+                    playbook: 'path/to/your/playbook.yml',
+                    inventory: 'path/to/your/inventory.ini',
+                    extraVars: [
+                        ansible_ssh_common_args: '-vvv'
+                    ]
+                )
         sh 'ansible-playbook -i inventory.ini ansible/playbook.yml'
       }
     }
+ }
   }
 }
 
